@@ -13,6 +13,7 @@ html, body {
 #header p{
   margin-left: 7.5%;
   font-size: 25px;
+  font-family: Helvetica, Arial;
 }
 
 #header img{
