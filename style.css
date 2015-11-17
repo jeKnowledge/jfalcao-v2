@@ -4,16 +4,32 @@ html, body {
   overflow: hidden;
 }
 
+@font-face{
+  font-family: HelveticaCondensedBold;
+  src: url(HelveticaNeueLTCom-BdCn.ttf);
+}
+
+@font-face{
+  font-family: HelveticaCondensed;
+  src: url(HelveticaNeueLTCom-Cn.ttf);
+}
 
 /*HEADER */
 
 #header{
   height: 20%;
+  margin: 35px 0 0 7.5%;
+
 }
 #header p{
-  margin-left: 7.5%;
-  font-size: 25px;
-  font-family: Helvetica, Arial;
+  margin:0;
+  padding: 0;
+  font-size: 30px;
+  font-family: HelveticaCondensed;
+}
+
+#header p b {
+  font-family: HelveticaCondensedBold;  
 }
 
 #header img{
