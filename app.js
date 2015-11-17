@@ -1,0 +1,64 @@
+var app = {};
+
+$(document).ready(function () {
+  app.images = ['foto2.JPG', 'foto3.JPG', 'foto4.JPG'];
+  app.currentImage = 0;
+
+  /* Preload all images */
+  $(app.images).each(function (index, value) {
+    preloadImage(value);
+  });
+});
+
+/* Prelaods a given image */
+var preloadImage = function (url) {
+  var img = new Image();
+  img.src = url;
+};
+
+var changeImage = function (direction) {
+  if (direction == 'right') {
+    if (app.currentImage == app.images.length - 1) {
+      app.currentImage = 0;
+    } else {
+      app.currentImage++;
+    }
+  } else {
+    if (app.currentImage == 0) {
+      app.currentImage = app.images.length - 1;
+    } else {
+      app.currentImage--;
+    }
+  }
+  
+  var image = $('#images');
+
+  $(image).fadeOut('slow', function () {
+    $(image).css('background', "url('" + app.images[app.currentImage] + "') no-repeat center center fixed");
+    $(image).fadeIn();
+  });
+};
+
+$('#images').bind('swipeleft', function (e) {
+  changeImage('right');
+});
+
+$('#images').bind('tap', function (e) {
+  changeImage('right');
+});
+
+$('#images').bind('swiperight', function (e) {
+  changeImage('left');
+});
+
+$('#images').bind('swipeup', function (e) {
+  $(this).fadeOut(function () {
+    $('#menu').fadeIn();
+  });
+});
+
+$('#menu').bind('swipedown', function (e) {
+  $(this).fadeOut(function () {
+    $('#images').fadeIn();
+  });  
+});
