@@ -54,3 +54,20 @@ html, body {
   margin-top: 10%;
   margin-left: 10%;
 }
+
+#options li{
+  display: inline;
+  margin-left:0;
+}
+
+#options{
+  margin-left:0;
+}
+
+#options li a{
+
+  font-family: arial;
+  color: inherit;
+  font-size: 40px;
+  margin-left: 10%;
+}
