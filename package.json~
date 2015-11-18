@@ -1,0 +1,22 @@
+{
+  "name": "jfalcao",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeKnowledge/jfalcao-v2.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jeKnowledge/jfalcao-v2/issues"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "~0.35.0"
+  }
+}

@@ -1,7 +1,7 @@
 var app = {};
 
 $(document).ready(function () {
-  app.images = ['foto2.JPG', 'foto3.JPG', 'foto4.JPG'];
+  app.images = ['foto1.JPG','foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.currentImage = 0;
 
   /* Preload all images */
@@ -10,7 +10,7 @@ $(document).ready(function () {
   });
 });
 
-/* Prelaods a given image */
+/* Preloads a given image */
 var preloadImage = function (url) {
   var img = new Image();
   img.src = url;
@@ -62,3 +62,10 @@ $('#menu').bind('swipedown', function (e) {
     $('#images').fadeIn();
   });  
 });
+
+$('#sala').bind('tap', function (e) {
+   $('#menu').fadeOut(function () {
+    $('#images').fadeIn();
+  }); 
+});
+

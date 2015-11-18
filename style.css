@@ -16,6 +16,7 @@ html, body {
 
 /*HEADER */
 
+
 #header{
   height: 20%;
   margin: 35px 0 0 7.5%;
@@ -75,6 +76,7 @@ html, body {
 #options li{
   display: inline;
   margin-left:0;
+  margin: -20px;
 }
 
 #options{
