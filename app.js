@@ -69,3 +69,27 @@ $('#sala').bind('tap', function (e) {
   }); 
 });
 
+$('#servico').bind('tap', function (e) {
+   $('#menu').fadeOut(function () {
+    $('#images').fadeIn();
+  }); 
+});
+
+$('#horario').bind('tap', function (e) {
+   $('#menu').fadeOut(function () {
+    $('#images').fadeIn();
+  }); 
+});
+
+$('#professor').bind('tap', function (e) {
+   $('#menu').fadeOut(function () {
+    $('#images').fadeIn();
+  }); 
+});
+
+$('#close-menu p').bind('tap', function (e) {
+   $('#menu').fadeOut(function () {
+    $('#images').fadeIn();
+  }); 
+});
+

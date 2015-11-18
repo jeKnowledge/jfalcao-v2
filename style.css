@@ -57,7 +57,7 @@ html, body {
 /*MENU*/
 
 #menu {
-  display: none;
+  display: none;\
   top: 20%;
   position: fixed;
   width: 100%;
@@ -67,7 +67,7 @@ html, body {
 }
 
 #question{
-  font-family: Helvetica, Arial;
+  font-family: HelveticaCondensed, Arial;
   font-size: 40px;
   margin-top: 10%;
   margin-left: 10%;
@@ -85,8 +85,23 @@ html, body {
 
 #options li a{
 
-  font-family: Helvetica, Arial;
+  font-family: HelveticaCondensed, Arial;
   color: inherit;
   font-size: 40px;
   margin-left: 10%;
+}
+
+/*FECHAR O MENU */
+
+#close-menu{
+  margin-top: 12.5%;
+  margin-left: 10%;
+}
+
+#close-menu p{
+  margin-left:0 ;
+  font-size: 40px;
+  font-family: HelveticaCondensed;
+  cursor: pointer;
+
 }
