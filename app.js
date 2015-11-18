@@ -1,7 +1,7 @@
 var app = {};
 
 $(document).ready(function () {
-  app.images = ['foto1.JPG','foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
+  app.images = ['andar1.svg','foto1.JPG','foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.currentImage = 0;
 
   /* Preload all images */
@@ -65,7 +65,7 @@ $('#menu').bind('swipedown', function (e) {
 
 $('#sala').bind('tap', function (e) {
    $('#menu').fadeOut(function () {
-    $('#images').fadeIn();
+    $('#planta').fadeIn();
   }); 
 });
 
@@ -90,6 +90,12 @@ $('#professor').bind('tap', function (e) {
 $('#close-menu p').bind('tap', function (e) {
    $('#menu').fadeOut(function () {
     $('#images').fadeIn();
+  }); 
+});
+
+$('#planta').bind('swipedown', function (e) {
+   $('#planta').fadeOut(function () {
+    $('#menu').fadeIn();
   }); 
 });
 
