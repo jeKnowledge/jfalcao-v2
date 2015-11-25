@@ -1,12 +1,13 @@
 var app = {};
 
 $(document).ready(function () {
-  app.images = ['andar1.svg','foto1.JPG','foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
+  app.images = ['foto1.JPG','foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.currentImage = 0;
 
   /* Preload all images */
   $(app.images).each(function (index, value) {
     preloadImage(value);
+    preloadImage('andar1.svg');
   });
 });
 
