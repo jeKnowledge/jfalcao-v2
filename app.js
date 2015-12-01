@@ -1,8 +1,12 @@
 var app = {};
 
+document.getElementById('images').style.backgroundImage="url(foto1.JPG)";
+
+
 $(document).ready(function () {
-  app.images = ['foto1.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
+  app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.currentImage = 0;
+
 
   /* Preload all images */
   $(app.images).each(function (index, value) {
@@ -33,6 +37,8 @@ var changeImage = function (direction) {
   }
   
   var image = $('#images');
+
+
 
   $(image).fadeOut('slow', function () {
     $(image).css('background', "url('" + app.images[app.currentImage] + "') no-repeat center center fixed");
