@@ -1,6 +1,5 @@
 var app = {};
 
-document.getElementById('images').style.backgroundImage="url('foto1.JPG')";
 
 $(document).ready(function () {
   app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
@@ -12,6 +11,8 @@ $(document).ready(function () {
   /* Preload all images and floors*/
   $.map(app.images, preloadImage);
   $.map(app.floors, preloadImage);
+  changeImage('right', true);
+
 });
 
 
@@ -21,14 +22,14 @@ var preloadImage = function (url) {
   img.src = url;
 };
 
-var changeImage = function (direction) {
-  if (direction == 'right') {
+var changeImage = function (direction, firstTime) {
+  if (direction == 'right' && !firstTime) {
     if (app.currentImage == app.images.length - 1) {
       app.currentImage = 0;
     } else {
       app.currentImage++;
     }
-  } else {
+  } else if (direction == 'left' && !firstTime) {
     if (app.currentImage == 0) {
       app.currentImage = app.images.length - 1;
     } else {
@@ -40,6 +41,7 @@ var changeImage = function (direction) {
 
   $(image).fadeOut('slow', function () {
     $(image).css('background', "url('" + app.images[app.currentImage] + "') no-repeat center center fixed");
+    $(image).css('background-size', 'cover');
     $(image).fadeIn();
   });
 };
@@ -96,6 +98,8 @@ $('#floors').bind('swipeleft', function (e) {
 
 
 /* IMAGENS */
+
+
 $('#images').bind('swipeleft', function (e) {
   changeImage('right');
 });
