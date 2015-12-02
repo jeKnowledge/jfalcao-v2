@@ -1,8 +1,10 @@
 var app = {};
 
-document.getElementById('images').style.backgroundImage="url(foto1.JPG)";
+document.getElementById('images').style.backgroundImage="url('foto1.JPG')";
 
-document.getElementById('floors').style.backgroundImage="url(piso1.png)";
+document.getElementById('floors').style.backgroundImage="url('piso1.png')";
+
+
 
 
 $(document).ready(function () {
@@ -31,6 +33,7 @@ var preloadImage = function (url) {
 };
 
 var changeImage = function (direction) {
+
   if (direction == 'right') {
     if (app.currentImage == app.images.length - 1) {
       app.currentImage = 0;
@@ -56,24 +59,32 @@ var changeImage = function (direction) {
 };
 
 var changeFloor = function (direction) {
-if (direction == 'right') {
-  if (app.currentFloor == app.floors.length - 1) {
-    app.currentFloor = 0;
-    print(app.currentFloor)
+
+  if (direction == 'right') {
+    if (app.currentFloor == app.floors.length - 1) {
+      app.currentFloor = 0;
+      print(app.currentFloor)
+    } else {
+      app.currentFloor++;
+    }
   } else {
-    app.currentFloor++;
+    if (app.currentFloor == 0) {
+      app.currentFloor = app.floors.length - 1;
+    } else {  
+      app.currentFloor--;
+    }
   }
-} else {
-  if (app.currentFloor == 0) {
-    app.currentFloor = app.floors.length - 1;
-  } else {  
-    app.currentFloor--;
-  }
-}
 
   var floor = $('#floors');
+  
+  var floorWidth = $(app.floors[app.currentFloor]).width();
+  console.log(floorWidth);
+  $(floor).width(floorWidth);
 
   $(floor).fadeOut('slow', function () {
+    var floorWidth = $(app.floors[app.currentFloor]).width();
+    $(floor).width(floorWidth);
+    //$(app.floors[app.currentFloor]).width(floorWidth);
     $(floor).css('background', "url('" + app.floors[app.currentFloor] + "') no-repeat center center fixed");
     $(floor).fadeIn();
   });
@@ -82,15 +93,24 @@ if (direction == 'right') {
 
 /* FLOORS */
 
+
+
 $('#floors').bind('tap', function (e) {
+  var floorWidth = $(floors).width();
+  $('#floors').width(floorWidth);
+  console.log(floorWidth);
   changeFloor('right');
 });
 
 $('#floors').bind('swiperight', function (e) {
+  $('#floors').width(floorWidth);
+  console.log(floorWidth);
   changeFloor('left');
 });
 
 $('#floors').bind('swipeleft', function (e) {
+  $('#floors').width(floorWidth);
+  console.log(floorWidth);
   changeFloor('right');
 });
 
@@ -133,6 +153,10 @@ $('#menu').bind('swipedown', function (e) {
 
 $('#sala').bind('tap', function (e) {
    $('#menu').fadeOut(function () {
+
+    var floorWidth = $('#floors').width();
+    $('#floors').width(floorWidth);
+    console.log(floorWidth);
     $('#floors').fadeIn();
   }); 
 });
