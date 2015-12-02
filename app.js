@@ -37,7 +37,6 @@ var changeImage = function (direction) {
   if (direction == 'right') {
     if (app.currentImage == app.images.length - 1) {
       app.currentImage = 0;
-      print(app.currentImage)
     } else {
       app.currentImage++;
     }
