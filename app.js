@@ -2,18 +2,12 @@ var app = {};
 
 document.getElementById('images').style.backgroundImage="url('foto1.JPG')";
 
-document.getElementById('floors').style.backgroundImage="url('piso1.png')";
-
-
-
-
 $(document).ready(function () {
   app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.floors = ['piso1.png', 'piso4.png'];
 
   app.currentImage = 0;
   app.currentFloor = 0;
-
 
   /* Preload all images and floors*/
   $(app.images).each(function (index, value) {
@@ -33,7 +27,6 @@ var preloadImage = function (url) {
 };
 
 var changeImage = function (direction) {
-
   if (direction == 'right') {
     if (app.currentImage == app.images.length - 1) {
       app.currentImage = 0;
@@ -48,7 +41,6 @@ var changeImage = function (direction) {
     }
   }
 
-  
   var image = $('#images');
 
   $(image).fadeOut('slow', function () {
@@ -57,69 +49,52 @@ var changeImage = function (direction) {
   });
 };
 
-var changeFloor = function (direction) {
-
-  if (direction == 'right') {
+var changeFloor = function (direction, firstTime) {
+  if (direction == 'right' && !firstTime) {
     if (app.currentFloor == app.floors.length - 1) {
       app.currentFloor = 0;
-      print(app.currentFloor)
     } else {
       app.currentFloor++;
     }
-  } else {
+  } else if (direction == 'left' && !firstTime) {
     if (app.currentFloor == 0) {
       app.currentFloor = app.floors.length - 1;
-    } else {  
+    } else {
       app.currentFloor--;
     }
   }
 
   var floor = $('#floors');
-  
-  var floorWidth = $(app.floors[app.currentFloor]).width();
-  console.log(floorWidth);
-  $(floor).width(floorWidth);
+
+  console.log(app.currentFloor);
 
   $(floor).fadeOut('slow', function () {
-    var floorWidth = $(app.floors[app.currentFloor]).width();
-    $(floor).width(floorWidth);
-    //$(app.floors[app.currentFloor]).width(floorWidth);
     $(floor).css('background', "url('" + app.floors[app.currentFloor] + "') no-repeat center center fixed");
+    $(floor).css('background-size', 'cover');
     $(floor).fadeIn();
   });
-
 };
 
 /* FLOORS */
 
-
-
 $('#floors').bind('tap', function (e) {
-  var floorWidth = $(floors).width();
-  $('#floors').width(floorWidth);
-  console.log(floorWidth);
   changeFloor('right');
 });
 
 $('#floors').bind('swiperight', function (e) {
-  $('#floors').width(floorWidth);
-  console.log(floorWidth);
   changeFloor('left');
 });
 
 $('#floors').bind('swipeleft', function (e) {
-  $('#floors').width(floorWidth);
-  console.log(floorWidth);
   changeFloor('right');
 });
 
-
 /*
-$('#floors').bind('swipedown', function (e) {
-  $(this).fadeOut(function () {
-    $('#menu').fadeIn();
-  });
-});*/
+ $('#floors').bind('swipedown', function (e) {
+ $(this).fadeOut(function () {
+ $('#menu').fadeIn();
+ });
+ });*/
 
 
 
@@ -147,40 +122,35 @@ $('#images').bind('swipeup', function (e) {
 $('#menu').bind('swipedown', function (e) {
   $(this).fadeOut(function () {
     $('#images').fadeIn();
-  });  
+  });
 });
 
 $('#sala').bind('tap', function (e) {
-   $('#menu').fadeOut(function () {
-
-    var floorWidth = $('#floors').width();
-    $('#floors').width(floorWidth);
-    console.log(floorWidth);
-    $('#floors').fadeIn();
-  }); 
+  $('#menu').fadeOut(function () {
+    changeFloor('right', true);
+  });
 });
 
 $('#servico').bind('tap', function (e) {
-   $('#menu').fadeOut(function () {
+  $('#menu').fadeOut(function () {
     $('#images').fadeIn();
-  }); 
+  });
 });
 
 $('#horario').bind('tap', function (e) {
-   $('#menu').fadeOut(function () {
+  $('#menu').fadeOut(function () {
     $('#images').fadeIn();
-  }); 
+  });
 });
 
 $('#professor').bind('tap', function (e) {
-   $('#menu').fadeOut(function () {
+  $('#menu').fadeOut(function () {
     $('#images').fadeIn();
-  }); 
+  });
 });
 
 $('#close-menu p').bind('tap', function (e) {
-   $('#menu').fadeOut(function () {
+  $('#menu').fadeOut(function () {
     $('#images').fadeIn();
-  }); 
+  });
 });
-
