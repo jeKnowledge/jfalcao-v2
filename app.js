@@ -5,7 +5,6 @@ document.getElementById('images').style.backgroundImage="url(foto1.JPG)";
 document.getElementById('floors').style.backgroundImage="url(piso1.png)";
 
 
-
 $(document).ready(function () {
   app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
   app.floors = ['piso1.png', 'piso4.png'];
