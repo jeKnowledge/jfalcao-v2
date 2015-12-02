@@ -2,17 +2,28 @@ var app = {};
 
 document.getElementById('images').style.backgroundImage="url(foto1.JPG)";
 
+document.getElementById('floors').style.backgroundImage="url(piso1.png)";
+
+
 
 $(document).ready(function () {
   app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
+  app.floors = ['piso1.png', 'piso4.png'];
+
   app.currentImage = 0;
+  app.currentFloor = 0;
 
 
-  /* Preload all images */
+  /* Preload all images and floors*/
   $(app.images).each(function (index, value) {
     preloadImage(value);
   });
+
+  $(app.floors).each(function (index, value) {
+    preloadImage(value);
+  });
 });
+
 
 /* Preloads a given image */
 var preloadImage = function (url) {
@@ -35,10 +46,9 @@ var changeImage = function (direction) {
       app.currentImage--;
     }
   }
+
   
   var image = $('#images');
-
-
 
   $(image).fadeOut('slow', function () {
     $(image).css('background', "url('" + app.images[app.currentImage] + "') no-repeat center center fixed");
@@ -46,6 +56,58 @@ var changeImage = function (direction) {
   });
 };
 
+var changeFloor = function (direction) {
+if (direction == 'right') {
+  if (app.currentFloor == app.floors.length - 1) {
+    app.currentFloor = 0;
+    print(app.currentFloor)
+  } else {
+    app.currentFloor++;
+  }
+} else {
+  if (app.currentFloor == 0) {
+    app.currentFloor = app.floors.length - 1;
+  } else {  
+    app.currentFloor--;
+  }
+}
+
+  var floor = $('#floors');
+
+  $(floor).fadeOut('slow', function () {
+    $(floor).css('background', "url('" + app.floors[app.currentFloor] + "') no-repeat center center fixed");
+    $(floor).fadeIn();
+  });
+
+};
+
+/* FLOORS */
+
+$('#floors').bind('tap', function (e) {
+  changeFloor('right');
+});
+
+$('#floors').bind('swiperight', function (e) {
+  changeFloor('left');
+});
+
+$('#floors').bind('swipeleft', function (e) {
+  changeFloor('right');
+});
+
+
+/*
+$('#floors').bind('swipedown', function (e) {
+  $(this).fadeOut(function () {
+    $('#menu').fadeIn();
+  });
+});*/
+
+
+
+
+
+/* IMAGENS */
 $('#images').bind('swipeleft', function (e) {
   changeImage('right');
 });
@@ -72,7 +134,7 @@ $('#menu').bind('swipedown', function (e) {
 
 $('#sala').bind('tap', function (e) {
    $('#menu').fadeOut(function () {
-    $('#planta').fadeIn();
+    $('#floors').fadeIn();
   }); 
 });
 
@@ -97,12 +159,6 @@ $('#professor').bind('tap', function (e) {
 $('#close-menu p').bind('tap', function (e) {
    $('#menu').fadeOut(function () {
     $('#images').fadeIn();
-  }); 
-});
-
-$('#planta').bind('swipedown', function (e) {
-   $('#planta').fadeOut(function () {
-    $('#menu').fadeIn();
   }); 
 });
 
