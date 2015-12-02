@@ -10,13 +10,8 @@ $(document).ready(function () {
   app.currentFloor = 0;
 
   /* Preload all images and floors*/
-  $(app.images).each(function (index, value) {
-    preloadImage(value);
-  });
-
-  $(app.floors).each(function (index, value) {
-    preloadImage(value);
-  });
+  $.map(app.images, preloadImage);
+  $.map(app.floors, preloadImage);
 });
 
 
