@@ -91,7 +91,7 @@ $('#floors').bind('swipedown', function(e) {
 });
 
 $('#close-floor p').bind('tap', function(e){
-  $(this).fadeOut(function(){
+  $('#floors').fadeOut(function(){
     $('#menu').fadeIn();
   });
 });
