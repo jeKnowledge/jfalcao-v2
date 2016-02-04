@@ -3,7 +3,7 @@ var app = {};
 
 $(document).ready(function () {
   app.images = ['foto1.JPG', 'foto2.JPG', 'foto3.JPG', 'foto4.JPG','foto5.JPG','foto6.JPG','foto7.JPG'];
-  app.floors = ['piso1.png', 'piso4.png'];
+  app.floors = ['piso0.png', 'piso1.png', 'piso2.png', 'piso3.png', 'piso4.png'];
 
   app.currentImage = 0;
   app.currentFloor = 0;
@@ -63,8 +63,6 @@ var changeFloor = function (direction, firstTime) {
 
   var floor = $('#floors');
 
-  console.log(app.currentFloor);
-
   $(floor).fadeOut('slow', function () {
     $(floor).css('background', "url('" + app.floors[app.currentFloor] + "') no-repeat center center fixed");
     $(floor).css('background-size', 'cover');
@@ -86,13 +84,11 @@ $('#floors').bind('swipeleft', function (e) {
   changeFloor('right');
 });
 
-/*
- $('#floors').bind('swipedown', function (e) {
- $(this).fadeOut(function () {
- $('#menu').fadeIn();
- });
- });*/
-
+$('#floors').bind('swipedown', function(e) {
+  $('this').fadeOut(function(){
+    $('#menu').fadeIn();
+  });
+});
 
 
 

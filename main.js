@@ -5,7 +5,15 @@ const BrowserWindow = electron.BrowserWindow;  // Module to create native browse
 
 
 // Report crashes to our server.
-electron.crashReporter.start();
+//electron.crashReporter.start();
+
+crashReporter = require('crash-reporter');
+crashReporter.start({
+  productName: 'jeKnowledge',
+  companyName: 'jeKnowledge',
+  submitUrl: 'https://jeknowledge.pt',
+  autoSubmit: false
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -39,5 +47,5 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
-  
+
 });
