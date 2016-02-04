@@ -85,11 +85,16 @@ $('#floors').bind('swipeleft', function (e) {
 });
 
 $('#floors').bind('swipedown', function(e) {
-  $('this').fadeOut(function(){
+  $(this).fadeOut(function(){
     $('#menu').fadeIn();
   });
 });
 
+$('#close-floor p').bind('tap', function(e){
+  $(this).fadeOut(function(){
+    $('#menu').fadeIn();
+  });
+});
 
 
 
