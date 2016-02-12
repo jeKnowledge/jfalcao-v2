@@ -35,6 +35,8 @@ var changeImage = function (direction, firstTime) {
     } else {
       app.currentImage--;
     }
+  } else if(direction == 'true' && firstTime){
+    app.currentImage = 0;
   }
 
   var image = $('#images');
@@ -72,7 +74,9 @@ var changeFloor = function (direction, firstTime) {
 
 /* FLOORS */
 
+
 $('#floors').bind('tap', function (e) {
+  console.log('deste tap num andar');
   changeFloor('right');
 });
 
@@ -90,8 +94,11 @@ $('#floors').bind('swipedown', function(e) {
   });
 });
 
-$('#close-floor p').bind('tap', function(e){
-  $('#floors').fadeOut(function(){
+
+$('#close-floor p').bind('tap', function (e) {
+  console.log('carregaste no + menu');
+  e.stopPropagation();
+  $('#floors').fadeOut(function () {
     $('#menu').fadeIn();
   });
 });

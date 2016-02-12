@@ -59,6 +59,7 @@ html, body {
 }
 
 
+
 /*MENU*/
 
 #menu {
@@ -112,7 +113,6 @@ html, body {
 /* FECHAR O ANDAR E IR PARA O MENU */
 
 #close-floor{
-  /*position: fixed;*/
   margin-top: 35%;
   margin-left: 85%;
 }
