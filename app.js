@@ -65,7 +65,6 @@ var changeFloor = function (direction) {
     $(floor).fadeIn();
   });
 };
-
 /* FLOORS*/
 
 $('#floors').on('swiperight', function (event) {
@@ -83,7 +82,6 @@ $('#floors').on('swipedown', function (event) {
 });
 
 $('#close-floor p').on('tap', function (event) {
-  console.log('carregaste no + menu');
   event.stopPropagation();
   $('#floors').fadeOut(function () {
     $('#menu').fadeIn();
@@ -110,7 +108,6 @@ $('#images').on('swipeup', function (event) {
   });
 });
 
-
 $('#menu').on('swipedown', function (event) {
   $(this).fadeOut(function () {
     $('#images').fadeIn();
@@ -124,12 +121,6 @@ $('#sala').on('tap', function (event) {
 });
 
 $('#servico').on('tap', function (event) {
-  $('#menu').fadeOut(function () {
-    $('#images').fadeIn();
-  });
-});
-
-$('#horario').on('tap', function (event) {
   $('#menu').fadeOut(function () {
     $('#images').fadeIn();
   });
