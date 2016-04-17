@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 const app = require('electron').app;
 const window = require('electron-window');
 
@@ -10,7 +9,7 @@ crashReporter.start({
   autoSubmit: false
 });
 
-app.on('ready', function() {
+app.on('ready', function () {
   var mainWindow = window.createWindow({fullscreen: true,});
   mainWindow.loadURL('file://' + __dirname + '/index.html');
   mainWindow.webContents.openDevTools();
