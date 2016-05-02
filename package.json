@@ -17,8 +17,5 @@
   },
   "devDependencies": {
     "electron-prebuilt": "~0.37"
-  },
-  "dependencies": {
-    "electron-window": "^0.6.4"
   }
 }

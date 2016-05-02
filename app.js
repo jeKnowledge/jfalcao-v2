@@ -1,5 +1,6 @@
-let app = {} ;
-const primaryApp = require('electron').app;
+let app = {};
+let ipc = require('ipc');
+
 
 $(document).ready(function () {
   app.images = ['images/foto1.JPG', 'images/foto2.JPG', 'images/foto3.JPG', 'images/foto4.JPG', 'images/foto5.JPG', 'images/foto6.JPG', 'images/foto7.JPG'];
@@ -119,4 +120,8 @@ $('#professor').on('tap', function (event) {
 
 $('#close-menu').find('p').on('tap', function (event) {
   $('#menu').fadeOut(() => $('#images').fadeIn());
+});
+
+$('#browser').on('tap', function (event) {
+  ipc.send('open-browser-window');
 });
