@@ -48,5 +48,5 @@ ipc.on('open-browser-window', function() {
     fullscreen: true
   });
 
-  browserWindow.loadURL('file://' + __dirname + '/electron-browser/browser.html');
+  browserWindow.loadURL('file://' + __dirname + '/browser/browser.html');
 });
