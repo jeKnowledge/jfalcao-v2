@@ -9,15 +9,13 @@ var BrowserTab = React.createClass({
       <a onClick={this.props.onClose}><i className="fa fa-close" /></a>
     </div>
   }
-})
+});
 
 var BrowserTabs = React.createClass({
   render: function () {
     var self = this
     return <div id="browser-tabs">
       <a className="close" onClick={this.props.onClose}><i className="fa fa-circle" /></a>
-      <a className="minimize" onClick={this.props.onMinimize}><i className="fa fa-circle" /></a>
-      <a className="maximize" onClick={this.props.onMaximize}><i className="fa fa-circle" /></a>
       {this.props.pages.map(function (page, i) {
         if (!page)
           return
@@ -30,4 +28,4 @@ var BrowserTabs = React.createClass({
       <a className="newtab" onClick={this.props.onNewTab}><i className="fa fa-plus" /></a>
     </div>
   }  
-})
+});
