@@ -1,7 +1,7 @@
-var ipc = require('ipc')
+const ipcRenderer = require('electron').ipcrRenderer
 
 function setStatus (status) {
-  ipc.sendToHost('status', status)
+  ipc.sendToHost('asynchronous-message', 'status', status)
 }
 
 window.addEventListener('mouseover', function (e) {

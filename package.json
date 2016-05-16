@@ -16,6 +16,9 @@
     "url": "https://github.com/jeKnowledge/jfalcao-v2/issues"
   },
   "devDependencies": {
-    "electron-prebuilt": "~0.37"
+    "electron-prebuilt": "*"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.1.0"
   }
 }

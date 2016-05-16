@@ -1,7 +1,7 @@
-var ipc = require('ipc')
+const ipcRenderer = require('electron').ipcRenderer
 
 function triggerMenu (data) {
-  ipc.sendToHost('contextmenu-data', data)
+  ipc.sendToHost('asynchronous-message', 'contextmenu-data', data)
 }
 
 ipc.on('get-contextmenu-data', function (pos) {

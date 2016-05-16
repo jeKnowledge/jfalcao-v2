@@ -1,5 +1,5 @@
 let app = {};
-let ipc = require('ipc');
+let ipcRenderer = require('electron').ipcRenderer;
 
 
 $(document).ready(function () {
@@ -168,5 +168,5 @@ $('#close-menu').find('p').on('tap', function (event) {
 });
 
 $('#browser').on('tap', function (event) {
-  ipc.send('open-browser-window');
+  ipcRenderer.send('asynchronous-message', 'open-browser-window');
 });

@@ -15,8 +15,6 @@ html, body {
 }
 
 /*HEADER */
-
-
 #header{
   height: 20%;
   margin: 35px 0 0 7.5%;
@@ -60,7 +58,7 @@ html, body {
 
 #schedules {
   display: none;
-  width: 100%;
+  width: auto;
   height: 100%;
   top: 20%;
   position: fixed;
@@ -102,7 +100,7 @@ html, body {
   margin-left: 10%;
 }
 
-/*FECHAR O MENU */
+/*Close menu*/
 
 #close-menu{
   margin-top: 12.5%;
