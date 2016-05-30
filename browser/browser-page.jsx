@@ -50,6 +50,7 @@ var BrowserPage = React.createClass({
 
   navigateTo: function (l) {
     var webview = this.refs.webview.getDOMNode()
+    console.log('location before change ' + l)
     webview.setAttribute('src', l)
   },
 

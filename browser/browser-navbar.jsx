@@ -6,8 +6,13 @@ var BrowserNavbarBtn = React.createClass({
 
 var BrowserNavbarLocation = React.createClass({
   onKeyDown: function (e) {
-    if (e.keyCode == 13)
+    if (e.keyCode == 13) {
+      let location = e.target.value
+      if (location.indexOf('https://') == -1) {
+        e.target.value = 'https://' + location
+      }
       this.props.onEnterLocation(e.target.value)
+    }
   },
   onChange: function (e) {
     this.props.onChangeLocation(e.target.value)

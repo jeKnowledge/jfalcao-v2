@@ -7,7 +7,7 @@ const urllib = require('url')
 
 function createPageObject (location) {
   return {
-    location: location||'http://pedrocaseiro.com',
+    location: location||'https://www.google.com',
     statusText: false,
     title: 'new tab',
     isLoading: false,
@@ -156,15 +156,6 @@ var BrowserChrome = React.createClass({
     onTabClose: function (e, page, pageIndex) {
       this.closeTab(pageIndex)
     },
-    onMaximize: function () {
-      if (remote.getCurrentWindow())
-        remote.getCurrentWindow().maximize()
-      else
-        remote.unmaximize()
-    },
-    onMinimize: function () {
-      remote.getCurrentWindow().minimize()
-    },
     onClose: function () {
       remote.getCurrentWindow().close()
     }
@@ -193,11 +184,13 @@ var BrowserChrome = React.createClass({
     },
     onClickSync: console.log.bind(console, 'sync'),
     onEnterLocation: function (location) {
+        
       this.getPage().navigateTo(location)
     },
     onChangeLocation: function (location) {
       var page = this.getPageObject()
       page.location = location
+      console.log(location)
       this.setState(this.state)
     },
     onLocationContextMenu: function (e) {

@@ -48,4 +48,5 @@ ipcMain.on('asynchronous-message', function(event, arg) {
   }
 
   browserWindow.loadURL('file://' + __dirname + '/browser/browser.html');
+  browserWindow.webContents.openDevTools();
 })
