@@ -8,8 +8,8 @@ var BrowserNavbarLocation = React.createClass({
   onKeyDown: function (e) {
     if (e.keyCode == 13) {
       let location = e.target.value
-      if (location.indexOf('https://') == -1) {
-        e.target.value = 'https://' + location
+      if (location.indexOf('http://') == -1) {
+        e.target.value = 'http://' + location
       }
       this.props.onEnterLocation(e.target.value)
     }
