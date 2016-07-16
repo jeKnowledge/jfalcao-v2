@@ -3,6 +3,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const crashReporter = electron.crashReporter;
 const ipcMain = electron.ipcMain;
+const globalShortcut = electron.globalShortcut;
 
 
 let mainWindow;
@@ -16,11 +17,32 @@ crashReporter.start({
 });
 
 function createWindow () {
-  mainWindow = new BrowserWindow({fullscreen: true});
+  mainWindow = new BrowserWindow({
+    frame: false,
+    fullscreen: true,
+    movable: false,
+    alwaysOnTop: true
+  });
+
+  globalShortcut.register('Control+Alt+Delete', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Control+F4', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Control+Escape', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Alt+Tab', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Super', () => {
+    console.log('Invalid Key Combination');
+  });
+
   mainWindow.loadURL('file://' + __dirname + '/index.html');
   mainWindow.webContents.openDevTools();
-
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   })
 }
@@ -44,8 +66,26 @@ ipcMain.on('asynchronous-message', function(event, arg) {
     app.quit();
   }
   else if ('open-browser-window') {
-    browserWindow = new BrowserWindow({fullscreen: true});
+    browserWindow = new BrowserWindow({
+      frame: false,
+      fullscreen: true,
+      movable: false,
+      alwaysOnTop: true
+    });
   }
+
+globalShortcut.register('Control+Alt+Delete', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Control+Escape', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShortcut.register('Alt+Tab', () => {
+    console.log('Invalid Key Combination');
+  });
+  globalShorcut.register('Super', () => {
+    console.log('Invalid Key Combination');
+  });
 
   browserWindow.loadURL('file://' + __dirname + '/browser/browser.html');
   browserWindow.webContents.openDevTools();
