@@ -1,7 +1,7 @@
 {
   "name": "jfalcao",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "App for touch screen",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,15 +10,22 @@
     "type": "git",
     "url": "https://github.com/jeKnowledge/jfalcao-v2.git"
   },
-  "author": "",
+  "author": "jeKnowledge",
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/jeKnowledge/jfalcao-v2/issues"
   },
+  "build": {
+    "asar": false
+  },
   "devDependencies": {
-    "devtron": "^1.1.2"
+    "devtron": "^1.1.2",
+    "electron-windows-installer": "^1.4.4",
+    "gulp": "^3.9.1"
   },
   "dependencies": {
+    "asar": "^0.13.0",
+    "electron-packager": "^8.7.2",
     "electron-prebuilt": "^1.1.0"
   }
 }
