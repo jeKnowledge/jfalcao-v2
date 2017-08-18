@@ -1,16 +1,16 @@
 let app = {};
 let ipcRenderer = require('electron').ipcRenderer;
-
+let $ = require('jquery');
 
 $(document).ready(function () {
   app.images = ['images/foto1.JPG', 'images/foto2.JPG', 'images/foto3.JPG', 'images/foto4.JPG', 'images/foto5.JPG', 'images/foto6.JPG', 'images/foto7.JPG'];
   app.floors = ['images/piso0.png', 'images/piso1.png', 'images/piso2.png', 'images/piso3.png', 'images/piso4.png'];
   app.schedules = ['images/schedule0.jpg', 'images/schedule1.jpg', 'images/schedule2.jpg'];
-  
+
   app.currentImage = 0;
   app.currentFloor = 0;
   app.currentSchedule = 0;
-  
+
   /* Preload all images and floors*/
   $.map(app.images, preloadImage);
   $.map(app.floors, preloadImage);

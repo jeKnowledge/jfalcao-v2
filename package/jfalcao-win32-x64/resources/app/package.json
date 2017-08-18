@@ -1,0 +1,29 @@
+{
+  "name": "jfalcao",
+  "version": "0.0.1",
+  "description": "App for touchscreen",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeKnowledge/jfalcao-v2.git"
+  },
+  "homepage": "https://github.com/jeKnowledge/jfalcao-v2.git",
+  "author": "jeKnowledge",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jeKnowledge/jfalcao-v2/issues"
+  },
+  "devDependencies": {
+    "electron-windows-installer": "^1.4.4"
+  },
+  "dependencies": {
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13",
+    "jquery": "^3.2.1"
+  },
+  "scripts": {
+    "package-windows": "rm -R -f package && electron-packager . --platform=win32 --out=package",
+    "installer-windows": "rm -R -f installer && electron-installer-windows --src package/jfalcao-win32-x64/ --dest installer/jfalcao-win32-x64/",
+    "bundle-windows": "npm run-script package-windows && npm run-script installer-windows"
+  }
+}
